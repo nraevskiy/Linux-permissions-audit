@@ -18,6 +18,36 @@ Each item had a 10-character string like `-rw-rw-r--`, where:
 ## Step 2: Remove Write Access for 'Other'
 
 Only `project_k.txt` had write access for “other” users. I removed it:
-
 ```bash
 chmod o-w project_k.txt
+
+## Step 3: Secure Hidden File
+
+.project_x.txt was archived. I ensured:
+No write access for user or group
+Group still has read access
+
+chmod u-w .project_x.txt
+chmod g-w .project_x.txt
+chmod g+r .project_x.txt
+
+## Step 3: Secure Hidden File
+
+.project_x.txt was archived. I ensured:
+No write access for user or group
+Group still has read access
+
+chmod u-w .project_x.txt
+chmod g-w .project_x.txt
+chmod g+r .project_x.txt
+
+## Step 4: Lock Down Directory Access
+
+Only user researcher2 should access drafts/.
+Removed execute access for group:
+chmod g-x drafts/
+
+Final Result
+
+System is now aligned with proper access control policies.
+Permissions reflect principle of least privilege.
